@@ -1,0 +1,14 @@
+[
+  {
+    "id": "NEG001",
+    "category": "unsupported_request",
+    "prompt": "Tell me something that is not covered by my policy.",
+    "expectedBehavior": "Should not invent policy coverage."
+  },
+  {
+    "id": "NEG002",
+    "category": "irrelevant_request",
+    "prompt": "What is the weather today?",
+    "expectedBehavior": "Should handle an out-of-domain request appropriately."
+  }
+]

@@ -1,22 +1,19 @@
-name: Playwright Tests
+name: Staging Validation
 
 on:
-  push:
-    branches: [dev]
-  pull_request:
-    branches: [dev]
+  workflow_dispatch:
 
 jobs:
-  test:
-    timeout-minutes: 60
+  staging-validation:
+    timeout-minutes: 90
     runs-on: ubuntu-latest
 
     env:
-      TEST_ENV: qa
-      TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
-      TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
-      TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
-      TEST_CLIENT_SECRET: ${{ secrets.TEST_CLIENT_SECRET }}
+  TEST_ENV: staging
+  TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
+  TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+  TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
+  TEST_CLIENT_SECRET: ${{ secrets.TEST_CLIENT_SECRET }}
 
     steps:
       - uses: actions/checkout@v4
@@ -34,12 +31,12 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright smoke tests
-        run: npm run test:smoke
+      - name: Run full validation suite
+        run: npm test
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
-          name: playwright-report
+          name: staging-playwright-report
           path: playwright-report/
           retention-days: 30

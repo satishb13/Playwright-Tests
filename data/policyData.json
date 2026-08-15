@@ -1,0 +1,16 @@
+[
+  {
+    "policyId": "POL001",
+    "policyType": "Term Life",
+    "customerName": "Test Customer",
+    "coverageAmount": 2000000,
+    "status": "Active"
+  },
+  {
+    "policyId": "POL002",
+    "policyType": "Health Insurance",
+    "customerName": "Test Customer 2",
+    "coverageAmount": 1000000,
+    "status": "Active"
+  }
+]
