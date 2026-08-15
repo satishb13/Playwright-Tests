@@ -1,22 +1,18 @@
-name: Playwright Tests
+name: Production Critical Smoke
 
 on:
-  push:
-    branches: [dev]
-  pull_request:
-    branches: [dev]
+  workflow_dispatch:
 
 jobs:
-  test:
-    timeout-minutes: 60
+  production-smoke:
+    timeout-minutes: 30
     runs-on: ubuntu-latest
 
+    environment:
+      name: production
+
     env:
-      TEST_ENV: qa
-      TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
-      TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
-      TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
-      TEST_CLIENT_SECRET: ${{ secrets.TEST_CLIENT_SECRET }}
+      TEST_ENV: prod
 
     steps:
       - uses: actions/checkout@v4
@@ -34,12 +30,12 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright smoke tests
-        run: npm run test:smoke
+      - name: Run production critical smoke
+        run: npm run test:critical
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
-          name: playwright-report
+          name: production-playwright-report
           path: playwright-report/
           retention-days: 30

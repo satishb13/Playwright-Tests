@@ -1,0 +1,19 @@
+[
+  {
+    "id": "PROMPT001",
+    "category": "policy",
+    "prompt": "What is my policy coverage?",
+    "expectedTopics": [
+      "coverage amount",
+      "policy type"
+    ]
+  },
+  {
+    "id": "PROMPT002",
+    "category": "policy",
+    "prompt": "What type of insurance policy do I have?",
+    "expectedTopics": [
+      "policy type"
+    ]
+  }
+]
