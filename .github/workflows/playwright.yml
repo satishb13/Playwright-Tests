@@ -12,13 +12,13 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-    TEST_ENV: staging
-    TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
-    TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
-    TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
-    TEST_CLIENT_SECRET: ${{ secrets.TEST_CLIENT_SECRET }}
-    KORE_USERNAME: ${{ secrets.KORE_USERNAME }}
-    KORE_PASSWORD: ${{ secrets.KORE_PASSWORD }}
+      TEST_ENV: staging
+      TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
+      TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+      TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
+      TEST_CLIENT_SECRET: ${{ secrets.TEST_CLIENT_SECRET }}
+      KORE_USERNAME: ${{ secrets.KORE_USERNAME }}
+      KORE_PASSWORD: ${{ secrets.KORE_PASSWORD }}
 
     steps:
       - uses: actions/checkout@v4
