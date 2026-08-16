@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import environment from './utils/environment';
+const authFile = './playwright/.auth/kore-user.json';
 /// <reference types="node" />
 
 /**
@@ -39,40 +40,57 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+  {
+    name: 'setup',
+    testMatch: /auth\.setup\.ts/,
+  },
+
+  {
+    name: 'chromium',
+    dependencies: ['setup'],
+    use: {
+      ...devices['Desktop Chrome'],
+      storageState: authFile,
     },
+  },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+  {
+    name: 'firefox',
+    dependencies: ['setup'],
+    use: {
+      ...devices['Desktop Firefox'],
+      storageState: authFile,
     },
+  },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+  {
+    name: 'webkit',
+    dependencies: ['setup'],
+    use: {
+      ...devices['Desktop Safari'],
+      storageState: authFile,
     },
+  },
 
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
+  /* Test against mobile viewports. */
+  // {
+  //   name: 'Mobile Chrome',
+  //   use: { ...devices['Pixel 5'] },
+  // },
+  // {
+  //   name: 'Mobile Safari',
+  //   use: { ...devices['iPhone 12'] },
+  // },
 
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
+  /* Test against branded browsers. */
+  // {
+  //   name: 'Microsoft Edge',
+  //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
+  // },
+  // {
+  //   name: 'Google Chrome',
+  //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+  // },
   ],
 
   /* Run your local dev server before starting the tests */

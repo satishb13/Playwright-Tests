@@ -1,6 +1,6 @@
 {
   "name": "staging",
-  "baseUrl": "",
+  "baseUrl": "https://staging-xo.korebots.com",
   "apiBaseUrl": "",
   "ragApiBaseUrl": ""
 }
