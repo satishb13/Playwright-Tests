@@ -6,7 +6,8 @@ export type EnvironmentName = 'qa' | 'staging' | 'prod';
 
 export interface EnvironmentConfig {
   name: EnvironmentName;
-  baseUrl: string;
+  builderBaseUrl: string;
+  chatbotBaseUrl: string;
   apiBaseUrl: string;
   ragApiBaseUrl: string;
 }

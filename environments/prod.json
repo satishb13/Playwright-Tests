@@ -1,6 +1,7 @@
 {
   "name": "prod",
-  "baseUrl": "",
+  "builderBaseUrl": "",
+  "chatbotBaseUrl": "",
   "apiBaseUrl": "",
   "ragApiBaseUrl": ""
 }

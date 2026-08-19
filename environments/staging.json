@@ -1,6 +1,7 @@
 {
   "name": "staging",
-  "baseUrl": "https://staging-xo.korebots.com",
+  "builderBaseUrl": "https://staging-xo.korebots.com",
+  "chatbotBaseUrl": "https://staging-xo.korebots.com/xo-webclient/0991bc8aed424c87ba5cec2aae42882414073cc81787407facb233c983bc4565stf1?lang=en",
   "apiBaseUrl": "",
   "ragApiBaseUrl": ""
 }

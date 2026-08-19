@@ -1,6 +1,7 @@
 {
   "name": "qa",
-  "baseUrl": "",
+  "builderBaseUrl": "",
+  "chatbotBaseUrl": "",
   "apiBaseUrl": "",
   "ragApiBaseUrl": ""
 }

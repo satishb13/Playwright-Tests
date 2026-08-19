@@ -1,4 +1,5 @@
 import { Page, Locator } from '@playwright/test';
+import environment from '../utils/environment';
 
 export class ChatbotPage {
   readonly page: Page;
@@ -9,14 +10,14 @@ export class ChatbotPage {
   constructor(page: Page) {
     this.page = page;
 
-    this.messageInput = page.getByRole('textbox');
+    this.messageInput = page.getByPlaceholder('Type a message');
     this.sendButton = page.getByRole('button', { name: /send/i });
-    this.responseContainer = page.locator('[data-testid="chatbot-response"]');
+    this.responseContainer = page.locator('.bot-bubble-content');
   }
 
   async open(): Promise<void> {
-    await this.page.goto('/');
-  }
+  await this.page.goto(environment.chatbotBaseUrl);
+}
 
   async enterMessage(message: string): Promise<void> {
     await this.messageInput.fill(message);
